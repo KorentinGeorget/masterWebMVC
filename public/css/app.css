@@ -1,0 +1,48 @@
+:root {
+    --primaryColor: #3498db;
+    --secondaryColor: #2ecc71;
+    --textColor: #34495e;
+    --backgroundColor: #ecf0f1;
+    --cardBackgroundColor: #ffffff;
+    --borderColor: #bdc3c7;
+    --dangerColor: #e74c3c;
+    --fontFamily: 'Helvetica Neue', Arial, sans-serif;
+    --borderRadius: 5px;
+    --boxShadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: var(--fontFamily);
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    margin: 0;
+    line-height: 1.5;
+}
+
+main.pageContainer {
+    padding-top: 80px; /* Hauteur du header */
+}
+
+.pageContainer {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+h1.pageTitle {
+    color: var(--textColor);
+    font-weight: 500;
+    border-bottom: 1px solid var(--borderColor);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+a {
+    color: var(--primaryColor);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #2980b9;
+}

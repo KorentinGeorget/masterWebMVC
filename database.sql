@@ -1,0 +1,22 @@
+CREATE TABLE user (
+    id INT AUTO_INCREMENT NOT NULL,
+    email VARCHAR(180) NOT NULL,
+    roles JSON NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    login LONGTEXT NOT NULL,
+    dateNew DATETIME NOT NULL,
+    dateLogin DATETIME DEFAULT NULL,
+    UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email),
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE produit (
+    id INT AUTO_INCREMENT NOT NULL,
+    type VARCHAR(100) NOT NULL,
+    designation VARCHAR(255) NOT NULL,
+    prix_ht NUMERIC(10, 2) NOT NULL,
+    date_in DATE NOT NULL,
+    time_sin DATETIME NOT NULL,
+    stock INT DEFAULT 0 NOT NULL,
+    PRIMARY KEY(id)
+);

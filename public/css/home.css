@@ -1,0 +1,61 @@
+.homeContainer {
+    text-align: center;
+}
+
+.heroSection {
+    padding: 4rem 1rem;
+    background-color: var(--cardBackgroundColor);
+    border-radius: var(--borderRadius);
+    margin-bottom: 3rem;
+    box-shadow: var(--boxShadow);
+}
+
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--primaryColor);
+    border-bottom: none;
+    margin: 0;
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    color: var(--textColor);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.featureCard {
+    display: block;
+    background-color: var(--cardBackgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: var(--borderRadius);
+    padding: 2rem;
+    text-align: left;
+    box-shadow: var(--boxShadow);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.featureCard h2 {
+    font-size: 1.5rem;
+    color: var(--primaryColor);
+    margin-top: 0;
+    border-bottom: none;
+}
+
+.featureCard p {
+    color: var(--textColor);
+    opacity: 0.9;
+}

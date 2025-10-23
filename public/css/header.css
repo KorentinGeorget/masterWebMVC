@@ -1,0 +1,55 @@
+.mainHeader {
+    background-color: var(--cardBackgroundColor);
+    border-bottom: 1px solid var(--borderColor);
+    box-shadow: var(--boxShadow);
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 80px;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.headerLogo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+}
+
+.headerLogo:hover {
+    text-decoration: none;
+}
+
+.mainNav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.mainNav .navLink {
+    display: block;
+    padding: 1rem;
+    margin-left: 0.5rem;
+    color: var(--textColor);
+    font-weight: 500;
+    border-radius: var(--borderRadius);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.mainNav .navLink:hover {
+    background-color: var(--primaryColor);
+    color: white;
+    text-decoration: none;
+}

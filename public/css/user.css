@@ -1,0 +1,117 @@
+/* Styles pour l'en-tête de page (titre + actions) */
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--borderColor);
+    padding-bottom: 1rem;
+}
+
+.pageHeader .pageTitle {
+    border-bottom: none;
+    margin: 0;
+}
+
+/* Styles pour la table des utilisateurs */
+.crudTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cardBackgroundColor);
+    box-shadow: var(--boxShadow);
+    border-radius: var(--borderRadius);
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+.crudTable th, .crudTable td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--borderColor);
+    word-wrap: break-word;
+}
+
+.crudTable thead {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: var(--textColor);
+}
+
+.crudTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.crudTable tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.actionsCell a {
+    margin-right: 10px;
+}
+
+/* Styles pour les pages de détails (show) */
+.showDetails {
+    background-color: var(--cardBackgroundColor);
+    padding: 2rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+}
+
+.detailRow {
+    display: flex;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--borderColor);
+}
+
+.detailRow:last-child {
+    border-bottom: none;
+}
+
+.detailLabel {
+    font-weight: bold;
+    flex-basis: 200px;
+    flex-shrink: 0;
+}
+
+.detailValue {
+    flex-grow: 1;
+    word-wrap: break-word;
+}
+
+/* Styles pour les formulaires */
+.formWrapper {
+    background-color: var(--cardBackgroundColor);
+    padding: 2rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+    max-width: 700px;
+}
+
+.formWrapper form > div {
+    margin-bottom: 1.5rem;
+}
+
+.formWrapper label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.formWrapper input[type="text"],
+.formWrapper input[type="email"],
+.formWrapper input[type="password"],
+.formWrapper select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--borderColor);
+    border-radius: var(--borderRadius);
+    font-size: 1rem;
+}
+
+/* Boutons et actions */
+.pageActions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
