@@ -23,15 +23,15 @@
     <tbody>
     <?php foreach ($produits as $produit): ?>
         <tr>
-            <td><?= htmlspecialchars($produit['id']) ?></td>
-            <td><?= htmlspecialchars($produit['type']) ?></td>
-            <td><?= htmlspecialchars($produit['designation']) ?></td>
-            <td><?= htmlspecialchars($produit['prix_ht']) ?> €</td>
-            <td><?= htmlspecialchars($produit['date_in']) ?></td>
-            <td><?= htmlspecialchars($produit['stock']) ?></td>
+            <td><?= htmlspecialchars($produit->getId()) ?></td>
+            <td><?= htmlspecialchars($produit->getType()) ?></td>
+            <td><?= htmlspecialchars($produit->getDesignation()) ?></td>
+            <td><?= htmlspecialchars($produit->getPrixHt()) ?> €</td>
+            <td><?= htmlspecialchars($produit->getDateIn()) ?></td>
+            <td><?= htmlspecialchars($produit->getStock()) ?></td>
             <td class="actionsCell">
-                <a href="/produit/show/<?= $produit['id'] ?>" class="btn btnSmall">Voir</a>
-                <a href="/produit/edit/<?= $produit['id'] ?>" class="btn btnSmall btnSecondary">Modifier</a>
+                <a href="/produit/show/<?= $produit->getId() ?>" class="btn btnSmall">Voir</a>
+                <a href="/produit/edit/<?= $produit->getId() ?>" class="btn btnSmall btnSecondary">Modifier</a>
             </td>
         </tr>
     <?php endforeach; ?>

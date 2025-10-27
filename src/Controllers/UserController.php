@@ -2,21 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Repositories\UserRepository;
+use App\Entities\User;
 
 class UserController extends Controller
 {
+    private $userRepository;
+
+    public function __construct()
+    {
+        $this->userRepository = new UserRepository();
+    }
+
     public function index()
     {
-        $userModel = new UserModel();
-        $users = $userModel->findAll();
+        $users = $this->userRepository->findAll();
         $this->render('user/index', ['users' => $users]);
     }
 
     public function show($id)
     {
-        $userModel = new UserModel();
-        $user = $userModel->findById($id);
+        $user = $this->userRepository->findById($id);
         $this->render('user/show', ['user' => $user]);
     }
 
@@ -28,32 +34,43 @@ class UserController extends Controller
     public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userModel = new UserModel();
-            $userModel->create($_POST);
+            $user = new User();
+            $user->setEmail($_POST['email']);
+            $user->setLogin($_POST['login']);
+            $user->setPassword($_POST['password']);
+            $user->setRoles([$_POST['roles']]);
+
+            $this->userRepository->create($user);
             header('Location: /user');
         }
     }
 
     public function edit($id)
     {
-        $userModel = new UserModel();
-        $user = $userModel->findById($id);
+        $user = $this->userRepository->findById($id);
         $this->render('user/edit', ['user' => $user]);
     }
 
     public function update($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userModel = new UserModel();
-            $userModel->update($id, $_POST);
+            $user = $this->userRepository->findById($id);
+            $user->setEmail($_POST['email']);
+            $user->setLogin($_POST['login']);
+            $user->setRoles([$_POST['roles']]);
+
+            if (!empty($_POST['password'])) {
+                $user->setPassword($_POST['password']);
+            }
+
+            $this->userRepository->update($user);
             header('Location: /user');
         }
     }
 
     public function delete($id)
     {
-        $userModel = new UserModel();
-        $userModel->delete($id);
+        $this->userRepository->delete($id);
         header('Location: /user');
     }
 }

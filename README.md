@@ -8,10 +8,14 @@ L'architecture MVC (Modèle-Vue-Contrôleur) est un patron de conception qui vis
 
 ### Modèle (Model)
 
-Le **Modèle** représente la logique métier et les données de l'application. Il est responsable de l'interaction avec la base de données.
+Le **Modèle** représente la logique métier et les données de l'application. Dans cette architecture, il est composé de plusieurs éléments :
 
--   **Emplacement :** `src/Models/`
--   **Rôle :** Dans ce projet, les modèles (`UserModel.php`, `ProduitModel.php`) contiennent les requêtes SQL pour lire et écrire des données dans la base de données. La classe `Database.php` gère la connexion à la base de données.
+-   **Entités :** Représentent les objets métier de l'application (ex: un `Produit`, un `User`). Elles contiennent les propriétés des objets et peuvent inclure de la logique métier spécifique à un objet.
+    -   **Emplacement :** `src/Entities/`
+-   **Repositories :** Servent de pont entre les contrôleurs et la base de données. Leur rôle est de gérer la persistance (recherche, sauvegarde, suppression) des entités. Ils retournent des objets (entités) plutôt que de simples tableaux.
+    -   **Emplacement :** `src/Repositories/`
+-   **Services :** Classes utilitaires, comme la connexion à la base de données.
+    -   **Emplacement :** `src/Core/`
 
 ### Vue (View)
 
@@ -39,7 +43,9 @@ Le **Contrôleur** fait le lien entre le Modèle et la Vue. Il reçoit les requ�
 │   └── index.php         # Point d'entrée de l'application (routeur principal)
 ├── src/
 │   ├── Controllers/      # Contrôleurs
-│   ├── Models/           # Modèles
+│   ├── Core/             # Services principaux (ex: connexion BDD)
+│   ├── Entities/         # Classes Entités (objets métier)
+│   ├── Repositories/     # Classes pour l'accès aux données
 │   └── Views/            # Vues
 ├── vendor/               # Dépendances (géré par Composer)
 ├── composer.json         # Fichier de configuration de Composer

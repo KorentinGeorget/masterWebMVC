@@ -21,13 +21,13 @@
     <tbody>
     <?php foreach ($users as $user): ?>
         <tr>
-            <td><?= htmlspecialchars($user['id']) ?></td>
-            <td><?= htmlspecialchars($user['email']) ?></td>
-            <td><?= htmlspecialchars($user['login']) ?></td>
-            <td><?= htmlspecialchars($user['roles']) ?></td>
+            <td><?= htmlspecialchars($user->getId()) ?></td>
+            <td><?= htmlspecialchars($user->getEmail()) ?></td>
+            <td><?= htmlspecialchars($user->getLogin()) ?></td>
+            <td><?= htmlspecialchars(implode(', ', $user->getRoles())) ?></td>
             <td class="actionsCell">
-                <a href="/user/show/<?= $user['id'] ?>" class="btn btnSmall">Voir</a>
-                <a href="/user/edit/<?= $user['id'] ?>" class="btn btnSmall btnSecondary">Modifier</a>
+                <a href="/user/show/<?= $user->getId() ?>" class="btn btnSmall">Voir</a>
+                <a href="/user/edit/<?= $user->getId() ?>" class="btn btnSmall btnSecondary">Modifier</a>
             </td>
         </tr>
     <?php endforeach; ?>
