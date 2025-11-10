@@ -13,8 +13,23 @@
             <a href="/" class="headerLogo">GestionStock</a>
             <nav class="mainNav">
                 <ul>
-                    <li><a href="/produit" class="navLink">Produits</a></li>
-                    <li><a href="/user" class="navLink">Utilisateurs</a></li>
+                    <?php if (\App\Core\AuthService::isLoggedIn()): ?>
+
+                        <li><a href="/produit" class="navLink">Produits</a></li>
+
+                        <?php if (\App\Core\AuthService::isAdmin()): ?>
+
+                            <li><a href="/user" class="navLink">Utilisateurs</a></li>
+                        <?php endif; ?>
+
+                        <li><a href="/logout" class="navLink">Se déconnecter</a></li>
+
+                    <?php else: ?>
+                        <li><a href="/login" class="navLink">Se connecter</a></li>
+                        <li><a href="/register" class="navLink">S'inscrire</a></li>
+
+                    <?php endif; ?>
+                    
                 </ul>
             </nav>
         </div>
