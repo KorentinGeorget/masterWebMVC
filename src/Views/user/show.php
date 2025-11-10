@@ -28,5 +28,8 @@
 
 <div class="pageActions">
     <a href="/user" class="btn btnSecondary">Retour à la liste</a>
-    <a href="/user/edit/<?= $user->getId() ?>" class="btn">Modifier</a>
+
+    <?php if (($admin)): ?>
+        <a href="/user/edit/<?= $user->getId() ?>" class="btn">Modifier</a>
+    <?php endif; ?>
 </div>

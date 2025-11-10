@@ -37,13 +37,29 @@ class UserRepository
         }
         return $users;
     }
-
+    
     public function findById($id): ?User
     {
         $stmt = $this->pdo->prepare('SELECT * FROM user WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $data = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $data ? $this->hydrate($data) : null;
+    }
+
+    public function findByEmail(string $email): ?User
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM user WHERE email = :email');
+        $stmt->execute(['email' => $email]);
+        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+        
+        // On réutilise votre super méthode hydrate !
+        return $data ? $this->hydrate($data) : null;
+    }
+
+    public function updateLastLogin(int $id): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE user SET dateLogin = NOW() WHERE id = :id');
+        $stmt->execute(['id' => $id]);
     }
 
     public function create(User $user): void

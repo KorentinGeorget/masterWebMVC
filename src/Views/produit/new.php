@@ -25,6 +25,10 @@
             <label for="stock">Stock</label>
             <input type="number" name="stock" id="stock">
         </div>
+        <div>
+            <label for="image_filename">Nom du Fichier Image (dans public/Images/)</label>
+            <input type="text" id="image_filename" name="image_filename" placeholder="ex: chaise.jpg">
+        </div>
         <button type="submit" class="btn">Enregistrer</button>
     </form>
 </div>

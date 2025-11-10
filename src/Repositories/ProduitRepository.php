@@ -24,6 +24,13 @@ class ProduitRepository
         $produit->setDateIn($data['date_in']);
         $produit->setTimeSin($data['time_sin']);
         $produit->setStock($data['stock']);
+        
+        if (isset($data['image_filename'])) {
+            $produit->setImageFilename($data['image_filename']);
+        }
+        $produit->setReductionPercent($data['reduction_percent']);
+
+        
         return $produit;
     }
 
@@ -49,8 +56,8 @@ class ProduitRepository
     public function create(Produit $produit): void
     {
         $stmt = $this->pdo->prepare(
-            'INSERT INTO produit (type, designation, prix_ht, date_in, stock, time_sin) 
-             VALUES (:type, :designation, :prix_ht, :date_in, :stock, NOW())'
+            'INSERT INTO produit (type, designation, prix_ht, date_in, stock, time_sin, image_filename, reduction_percent) 
+             VALUES (:type, :designation, :prix_ht, :date_in, :stock, NOW(), :image_filename, :reduction_percent)'
         );
         $stmt->execute([
             'type' => $produit->getType(),
@@ -58,6 +65,8 @@ class ProduitRepository
             'prix_ht' => $produit->getPrixHt(),
             'date_in' => $produit->getDateIn(),
             'stock' => $produit->getStock(),
+            'image_filename' => $produit->getImageFilename(),
+            'reduction_percent' => $produit->getReductionPercent(),
         ]);
     }
 
@@ -65,7 +74,9 @@ class ProduitRepository
     {
         $stmt = $this->pdo->prepare(
             'UPDATE produit 
-             SET type = :type, designation = :designation, prix_ht = :prix_ht, date_in = :date_in, stock = :stock 
+             SET type = :type, designation = :designation, prix_ht = :prix_ht, 
+                 date_in = :date_in, stock = :stock, image_filename = :image_filename, 
+                 reduction_percent = :reduction_percent
              WHERE id = :id'
         );
         $stmt->execute([
@@ -75,6 +86,8 @@ class ProduitRepository
             'prix_ht' => $produit->getPrixHt(),
             'date_in' => $produit->getDateIn(),
             'stock' => $produit->getStock(),
+            'image_filename' => $produit->getImageFilename(),
+            'reduction_percent' => $produit->getReductionPercent(),
         ]);
     }
 

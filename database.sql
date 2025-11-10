@@ -18,5 +18,17 @@ CREATE TABLE produit (
     date_in DATE NOT NULL,
     time_sin DATETIME NOT NULL,
     stock INT DEFAULT 0 NOT NULL,
+    image_filename VARCHAR(255) DEFAULT NULL,
+    reduction_percent INT DEFAULT 0 NOT NULL,
     PRIMARY KEY(id)
+);
+
+CREATE TABLE historique_reduction (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    produit_id INT NOT NULL,
+    ancienne_valeur INT NOT NULL,
+    nouvelle_valeur INT NOT NULL,
+    date_modification DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (produit_id) REFERENCES produit(id) ON DELETE CASCADE
 );
